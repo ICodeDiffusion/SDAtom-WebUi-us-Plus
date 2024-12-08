@@ -3,7 +3,7 @@ I have been a huge fan of this extension, it's simple, not heavy on performance,
 
 I will be adding extensions to be compatible with Legacy Forge so far, I have a reforge version that works that includes the Scheduler Type setting as well.
 
-I am first adding adteiler extension capabilities, I got this to work with some of it's settings. Postive prompt
+I am first adding adteiler extension capabilities, I got this to work with some of it's settings. Postive prompt, denoise, and activating the extension.
 
 Roadmap:
 Complete Adetailer capabilities.
