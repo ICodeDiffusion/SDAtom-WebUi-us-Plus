@@ -1,4 +1,17 @@
 # SDAtom-WebUi-us
+I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly!
+
+I will be adding extensions to be compatible with Legacy Forge so far, I have a reforge version that works that includes the Scheduler Type setting as well.
+
+I am first adding adteiler extension capabilities, I got this to work with some of it's settings. Postive prompt
+
+Roadmap:
+Complete Adetailer capabilities.
+Add other extensions and do built-in ones as well.
+Add reFoprge(I have a working prototype I been using for like a month now) & Latest forge capabilities (this will take longer)
+
+
+ORIGINAL DESCRIPTION
 
 This is a [user script](https://en.wikipedia.org/wiki/Userscript) that adds a processing queue to the web ui of [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui). There is also an option to save one or more sets of settings for quickly loading them again later. 
 
