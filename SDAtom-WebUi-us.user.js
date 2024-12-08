@@ -72,6 +72,8 @@
 
             scriptadetailer: {sel:"#script_txt2img_adetailer_ad_main_accordion input"},
             scriptadetailerPositivePrompt:{sel:"#script_txt2img_adetailer_ad_prompt textarea"},
+            scriptadetailerNegativePrompt:{sel:"#script_txt2img_adetailer_ad_negative_prompt textarea"},
+            scriptadetailerDetection: {sel:"#script_txt2img_adetailer_ad_confidence [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_confidence input"},
             scriptadetailerDenoise: {sel:"#script_txt2img_adetailer_ad_denoising_strength [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_denoising_strength input"},
 
             script: {grad:"script_list",gradIndex:0},
