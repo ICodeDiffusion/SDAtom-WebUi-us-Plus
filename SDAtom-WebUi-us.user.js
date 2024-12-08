@@ -70,6 +70,10 @@
             varRSFWidth: {sel:"#txt2img_seed_resize_from_w [id^=range_id]",sel2:"#txt2img_seed_resize_from_w input"},
             varRSFHeight: {sel:"#txt2img_seed_resize_from_h [id^=range_id]",sel2:"#txt2img_seed_resize_from_h input"},
 
+            scriptadetailer: {sel:"#script_txt2img_adetailer_ad_main_accordion input"},
+            scriptadetailerPrompt:{sel:"#script_txt2img_adetailer_ad_prompt textarea"},
+            scriptadetailerDenoise: {sel:"#script_txt2img_adetailer_ad_denoising_strength [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_denoising_strength input"},
+
             script: {grad:"script_list",gradIndex:0},
 
             scriptPromptMatrixPutVar: {sel:"#script_txt2img_prompt_matrix_put_at_start input"},
