@@ -10,6 +10,14 @@ Complete Adetailer capabilities.
 Add other extensions and do built-in ones as well.
 Add reFoprge(I have a working prototype I been using for like a month now) & Latest forge capabilities (this will take longer)
 
+Why am I doing this?
+
+A major factor is Agent Scheduler DOES NOT let you edit settings of extensions settings in the queued tasks, so let's say you have 15 queued tasks that all have settings in an extension you want to change, the json file it has does not show those settings, so you are then forced to requeue the tasks all over again just to have the adjusted settings.
+
+Another annoyance, if you cancel the run on Agent Scheduler midway through to change some setttings, the preview breaks and no longer shows so you have to wait until the image is finished to then check, eventually it does fix itself but takes a while to start showing up again.
+
+This extension has been the most reliable to me and, IT JUST WORKS, no pun intended.
+
 
 ORIGINAL DESCRIPTION
 
