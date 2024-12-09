@@ -7,27 +7,8 @@ I have been a huge fan of this extension, it's simple, not heavy on performance,
 My goal is to focus on the popular extensions first.
 
 # Additions so far
-Added Adetailer:
-Activate Extension
-Detection Confidence
-Mask only the top k
-Mask min area ratio
-Mask max area ratio
-Positive Prompt
-Negative Prompt
-Denoise Strength
-Working on currently:
-Method to filter top k masks by (confidence or area), This one is not working yet, it's a different UI element than I'm used to.
 
-Added Regional Prompter:
-Activating the extension
-Matrix:
-Base Ratio
-Use Base Prompt
-Use Common Prompt
-Use Common Negative Prompt
-Main Splitting
-Divide Ratio
+I don't how how to use proper formatting, so please check releases page for what's been added :) If I put it here it get's combined and looks like a mess.
 
 
 Roadmap:
