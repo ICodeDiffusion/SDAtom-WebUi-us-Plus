@@ -4,9 +4,31 @@ Newest Forge does not work with this due to the checkpoint selection ui element 
 
 I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly!
 
-I will be adding extensions to be compatible with Legacy Forge so far, I have a reforge version that works that includes the Scheduler Type setting as well.
+My goal is to focus on the popular extensions first.
 
-I am first adding adteiler extension capabilities, I got this to work with some of it's settings. Postive prompt, denoise, and activating the extension.
+# Additions so far
+Added Adetailer:
+Activate Extension
+Detection Confidence
+Mask only the top k
+Mask min area ratio
+Mask max area ratio
+Positive Prompt
+Negative Prompt
+Denoise Strength
+Working on currently:
+Method to filter top k masks by (confidence or area), This one is not working yet, it's a different UI element than I'm used to.
+
+Added Regional Prompter:
+Activating the extension
+Matrix:
+Base Ratio
+Use Base Prompt
+Use Common Prompt
+Use Common Negative Prompt
+Main Splitting
+Divide Ratio
+
 
 Roadmap:
 Complete Adetailer capabilities.
