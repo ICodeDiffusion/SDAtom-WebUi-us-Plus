@@ -1,4 +1,7 @@
-# SDAtom-WebUi-us
+# SDAtom-WebUi-us-Plus
+# reForge Compatible only.
+Newest Forge does not work with this due to some of the the checkpoint ui element being renamed and is not detecting it. It might be over my skillset to make it work.
+
 I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly!
 
 I will be adding extensions to be compatible with Legacy Forge so far, I have a reforge version that works that includes the Scheduler Type setting as well.
