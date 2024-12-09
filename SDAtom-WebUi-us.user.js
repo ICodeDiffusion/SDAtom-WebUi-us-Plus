@@ -80,6 +80,14 @@
             scriptadetailerMaskMaxRatio: {sel:"#script_txt2img_adetailer_ad_mask_max_ratio [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_mask_max_ratio input"},
             scriptadetailerDenoise: {sel:"#script_txt2img_adetailer_ad_denoising_strength [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_denoising_strength input"},
 
+            scriptRegionalPrompter: {sel:"#RP_activet2i input"},
+            scriptRegionalPrompterBaseRatio:{sel:"#RP_base_ratiot2i textarea"},
+            scriptRegionalPrompterCommon: {sel:"#RP_usebaset2i input"},
+            scriptRegionalPrompterCommon: {sel:"#RP_usecommont2i input"},
+            scriptRegionalPrompterNeg: {sel:"#RP_usecommon_negativet2i input"},
+            scriptRegionalPrompterMainSplitting: {sel:"#RP_main_splittingt2i input"},
+            scriptRegionalPrompterDivideRatio:{sel:"#RP_divide_ratiot2i textarea"},
+
             script: {grad:"script_list",gradIndex:0},
 
             scriptPromptMatrixPutVar: {sel:"#script_txt2img_prompt_matrix_put_at_start input"},
