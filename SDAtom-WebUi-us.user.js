@@ -42,6 +42,7 @@
 
             sample: {sel:"#txt2img_steps [id^=range_id]",sel2:"#txt2img_steps input"},
             sampleMethod: {grad:"txt2img_sampling"},
+            scheduleType: {grad:"txt2img_scheduler"},
 
             width:  {sel:"#txt2img_width [id^=range_id]",sel2:"#txt2img_width input"},
             height: {sel:"#txt2img_height [id^=range_id]",sel2:"#txt2img_height input"},
@@ -326,6 +327,9 @@
 											break;
 										case "Sampler":
 											valueJSON['sampleMethod']=kv[1];
+											break;
+										case "Scheduler":
+											valueJSON['scheduleType']=kv[1];
 											break;
 										case "CFG scale":
 											valueJSON['cfg']=kv[1];
