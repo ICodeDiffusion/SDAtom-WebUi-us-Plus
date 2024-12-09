@@ -21,26 +21,27 @@ I discovered this when I removed an extension and didn't remember what I removed
 
 # Changes so far:
 Added Adetailer:
-	Activate Extension
- 	Detecion Confidence
-  	Mask only the top k
-   	Mask min area ratio
-    	Mask max area ratio
-	Postive Prompt
- 	Negative Prompt
-  	Denoise Stength
+Activate Extension
+Detecion Confidence
+Mask only the top k
+Mask min area ratio
+Mask max area ratio
+Postive Prompt
+Negative Prompt
+Denoise Stength
+
 Working on currently:
 	Method to filter top k masks by (confidence or area), This one is not working yet, it's a different UI element than I'm used to.
 
 Added Regional Prompter:
-	Activating the extension
- 		Matrix:
-   			Base Ratio
-   			Use Base Prompt
-      			Use Common Prompt
-	 		Use Common Negative Prompt
-    			Main Splitting
-       			Divide Ratio
+Activating the extension
+Base Ratio
+Use Base Prompt
+Use Common Prompt
+Use Common Negative Prompt
+Matrix:
+Main Splitting
+Divide Ratio
 
 # ORIGINAL DESCRIPTION
 
