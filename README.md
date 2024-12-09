@@ -22,7 +22,7 @@ I discovered this when I removed an extension and didn't remember what I removed
 # Changes so far:
 Added Adetailer:
 Activate Extension
-Detecion Confidence
+Detction Confidence
 Mask only the top k
 Mask min area ratio
 Mask max area ratio
