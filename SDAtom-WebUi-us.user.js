@@ -73,6 +73,11 @@
 
             scriptadetailer: {sel:"#script_txt2img_adetailer_ad_main_accordion input"},
             scriptadetailerPositivePrompt:{sel:"#script_txt2img_adetailer_ad_prompt textarea"},
+            scriptadetailerNegativePrompt:{sel:"#script_txt2img_adetailer_ad_negative_prompt textarea"},
+            scriptadetailerDetection: {sel:"#script_txt2img_adetailer_ad_confidence [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_confidence input"},
+            scriptadetailerMaskK: {sel:"#script_txt2img_adetailer_ad_mask_k [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_mask_k input"},
+            scriptadetailerMaskMinRatio: {sel:"#script_txt2img_adetailer_ad_mask_min_ratio [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_mask_min_ratio input"},
+            scriptadetailerMaskMaxRatio: {sel:"#script_txt2img_adetailer_ad_mask_max_ratio [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_mask_max_ratio input"},
             scriptadetailerDenoise: {sel:"#script_txt2img_adetailer_ad_denoising_strength [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_denoising_strength input"},
 
             script: {grad:"script_list",gradIndex:0},
