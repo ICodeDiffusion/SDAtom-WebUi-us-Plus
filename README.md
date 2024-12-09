@@ -5,21 +5,44 @@ I will be adding extensions to be compatible with Legacy Forge so far, I have a 
 
 I am first adding adteiler extension capabilities, I got this to work with some of it's settings. Postive prompt, denoise, and activating the extension.
 
-Roadmap:
+# Roadmap:
 Complete Adetailer capabilities.
 Add other extensions and do built-in ones as well.
 Add reFoprge(I have a working prototype I been using for like a month now) & Latest forge capabilities (this will take longer)
 
-Why am I doing this?
+# Why am I doing this?
 
 A major factor is Agent Scheduler DOES NOT let you edit settings of extensions settings in the queued tasks, so let's say you have 15 queued tasks that all have settings in an extension you want to change, the json file it has does not show those settings, so you are then forced to requeue the tasks all over again just to have the adjusted settings.
 
 Another annoyance, if you cancel the run on Agent Scheduler midway through to change some setttings, the preview breaks and no longer shows so you have to wait until the image is finished to then check, eventually it does fix itself but takes a while to start showing up again.
 
-This extension has been the most reliable to me and, IT JUST WORKS, no pun intended.
+Another example is when you install or uninstall an extension while it is not currently in use in your queue. It will completely break it, forcing you to requeue everything. 
+I discovered this when I removed an extension and didn't remember what I removed until later. I did not have it in use in the queue and tried to import a saved setup and run it and It always failed, but once I remembered what extension was removed I added it back in and it finally worked!
 
+# Changes so far:
+Added Adetailer:
+	Activate Extension
+ 	Detecion Confidence
+  	Mask only the top k
+   	Mask min area ratio
+    	Mask max area ratio
+	Postive Prompt
+ 	Negative Prompt
+  	Denoise Stength
+Working on currently:
+	Method to filter top k masks by (confidence or area), This one is not working yet, it's a different UI element than I'm used to.
 
-ORIGINAL DESCRIPTION
+Added Regional Prompter:
+	Activating the extension
+ 		Matrix:
+   			Base Ratio
+   			Use Base Prompt
+      			Use Common Prompt
+	 		Use Common Negative Prompt
+    			Main Splitting
+       			Divide Ratio
+
+# ORIGINAL DESCRIPTION
 
 This is a [user script](https://en.wikipedia.org/wiki/Userscript) that adds a processing queue to the web ui of [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui). There is also an option to save one or more sets of settings for quickly loading them again later. 
 
