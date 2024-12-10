@@ -2,11 +2,11 @@
 # reForge Compatible only.
 Newest Forge does not work with this due to the checkpoint selection ui element being renamed and is not detecting it aftry updating this. It might be over my skill set to make it work for now.
 
-I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly! 
+I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly!
 
-My goal is to focus on the popular extensions first.
+Audio Notifications work, it also has it's own as well. So you can have notification mp3 alongside it.
 
-# Additions so far
+# Additions so far My goal is to focus on the popular extensions first.
 
 Added Adetailer:
 * Activate Extension
