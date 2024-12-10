@@ -30,6 +30,7 @@ Working on currently:
 Method to filter top k masks by (confidence or area), This one is not working yet, it's a different UI element than I'm used to.
 
 
+
 Added Regional Prompter:
 
 Activating the extension
