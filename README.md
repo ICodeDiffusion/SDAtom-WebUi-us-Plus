@@ -22,9 +22,7 @@ Added Adetailer:
 
 
 Added Regional Prompter:
-
-Activating the extension
-
+* Activate the extension
 Matrix:
 * Base Ratio
 * Use Base Prompt
