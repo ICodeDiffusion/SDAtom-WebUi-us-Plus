@@ -4,7 +4,7 @@ Newest Forge does not work with this due to the checkpoint selection ui element 
 
 I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly!
 
-Audio Notifications work, it also has it's own as well. So you can have notification mp3 alongside it.
+Audio Notifications work, it also has it's own as well. So you can have notification mp3 alongside SD-ATOM's notification.
 
 
 # Why New Forge and some UI elements won't work for now.
