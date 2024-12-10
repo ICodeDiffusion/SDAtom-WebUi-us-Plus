@@ -72,6 +72,7 @@
             varRSFHeight: {sel:"#txt2img_seed_resize_from_h [id^=range_id]",sel2:"#txt2img_seed_resize_from_h input"},
 
             scriptadetailer: {sel:"#script_txt2img_adetailer_ad_main_accordion input"},
+            scriptadetailerModel:{grad:"#script_txt2img_adetailer_ad_model"},
             scriptadetailerPositivePrompt:{sel:"#script_txt2img_adetailer_ad_prompt textarea"},
             scriptadetailerNegativePrompt:{sel:"#script_txt2img_adetailer_ad_negative_prompt textarea"},
             scriptadetailerDetection: {sel:"#script_txt2img_adetailer_ad_confidence [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_confidence input"},
