@@ -41,9 +41,13 @@ Base Ratio
 Use Base Prompt
 
 Use Common Prompt
+
 Use Common Negative Prompt
+
 Main Splitting
+
 Divide Ratio
+
 
 # Minor Bug
 When you edit or edit the extracted task and throw in something like this "nami \(one piece\)" IT WILL NOT WORK, you HAVE TO make sure it's "nami \\(one piece\\)" with the double backslash.
