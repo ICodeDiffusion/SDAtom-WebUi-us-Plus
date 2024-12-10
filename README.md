@@ -2,7 +2,7 @@
 # reForge Compatible only.
 Newest Forge does not work with this due to the checkpoint selection ui element being renamed and is not detecting it aftry updating this. It might be over my skill set to make it work for now.
 
-I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly!
+I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly! 
 
 My goal is to focus on the popular extensions first.
 
