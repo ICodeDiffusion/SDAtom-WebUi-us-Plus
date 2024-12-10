@@ -8,8 +8,9 @@ Audio Notifications work, it also has it's own as well. So you can have notifica
 
 # Additions so far My goal is to focus on the popular extensions first.
 
-Added Adetailer:
+Added Adetailer: Tab one so far
 * Activate Extension
+* Model Selection
 * Detection Confidence
 * Mask only the top k
 * Mask min area ratio
