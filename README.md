@@ -8,7 +8,27 @@ My goal is to focus on the popular extensions first.
 
 # Additions so far
 
-I don't how how to use proper formatting, so please check releases page for what's been added :) If I put it here it get's combined and looks like a mess.
+Added Adetailer:
+Activate Extension
+Detection Confidence
+Mask only the top k
+Mask min area ratio
+Mask max area ratio
+Positive Prompt
+Negative Prompt
+Denoise Strength
+Working on currently:
+Method to filter top k masks by (confidence or area), This one is not working yet, it's a different UI element than I'm used to.
+
+Added Regional Prompter:
+Activating the extension
+Matrix:
+Base Ratio
+Use Base Prompt
+Use Common Prompt
+Use Common Negative Prompt
+Main Splitting
+Divide Ratio
 
 # Minor Bug
 When you edit or edit the extracted task and throw in something like this "nami \(one piece\)" IT WILL NOT WORK, you HAVE TO make sure it's "nami \\(one piece\\)" with the double backslash.
