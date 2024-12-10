@@ -51,9 +51,9 @@ Divide Ratio
 
 
 # Minor Bug
-When you edit or edit the extracted task and throw in something like this "nami \(one piece\)" IT WILL NOT WORK, you HAVE TO make sure it's "nami \\\(one piece\\\)" with the double backslash.
+When you edit or edit the extracted task and throw in something like this "nami \(one piece\)" IT WILL NOT WORK, you HAVE TO make sure it's "nami \\\ (one piece) \\\)" with the double backslash.
 
-It will fail to load if you have a prompt that has a single set of backslash, so always make sure you have it in this format "nami \\\(one piece\\\)"
+It will fail to load if you have a prompt that has a single set of backslash, so always make sure you have it in this format "nami \\\ (one piece) \\\)"
 This also affects Agent scheduler as well.
 
 I belive it will also fail to import as well, I highly reconmend Style Vars and put "nami \(one piece\)" or anything like it, inside a saved style.
