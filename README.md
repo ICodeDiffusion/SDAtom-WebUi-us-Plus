@@ -6,6 +6,16 @@ I have been a huge fan of this extension, it's simple, not heavy on performance,
 
 Audio Notifications work, it also has it's own as well. So you can have notification mp3 alongside it.
 
+
+# Why New Forge and some UI elements won't work for now.
+Ok so when I add the settings to be carried over to this extension they have a name to each one, however some settings are auto generated a name upon installation and are given a component id instead of a name.
+
+New Forge UI for Checkpoint selection has the same thing "component-1370", but reForge & old forge have something like this instead "setting_sd_model_checkpoint".
+
+
+Now Adetailer has the same issue when you inspect the 1st, 2nd, 3rd, etc, etc. tab selection buttons.
+
+
 # Additions so far My goal is to focus on the popular extensions first.
 
 Added Adetailer: Tab one so far
