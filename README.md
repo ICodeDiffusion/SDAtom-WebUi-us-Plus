@@ -10,21 +10,36 @@ My goal is to focus on the popular extensions first.
 
 Added Adetailer:
 Activate Extension
+
 Detection Confidence
+
 Mask only the top k
+
 Mask min area ratio
+
 Mask max area ratio
+
 Positive Prompt
+
 Negative Prompt
+
 Denoise Strength
+
 Working on currently:
+
 Method to filter top k masks by (confidence or area), This one is not working yet, it's a different UI element than I'm used to.
 
+
 Added Regional Prompter:
+
 Activating the extension
+
 Matrix:
+
 Base Ratio
+
 Use Base Prompt
+
 Use Common Prompt
 Use Common Negative Prompt
 Main Splitting
