@@ -14,6 +14,8 @@ New Forge UI for Checkpoint selection has the same thing "component-1370", but r
 
 
 Now Adetailer has the same issue when you inspect the 1st, 2nd, 3rd, etc, etc. tab selection buttons.
+![image](https://github.com/user-attachments/assets/4b26211b-b337-41f8-a43a-bb2656d38cb5)
+
 
 
 Meaning, if everyone's UI autogenerates the id/name on those types of ui elements and it differs from each person's ui, it could indicate an internal gradio system that I do not know how to change.
