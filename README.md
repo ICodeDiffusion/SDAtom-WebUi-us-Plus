@@ -62,6 +62,11 @@ Another annoyance, if you cancel the run on Agent Scheduler midway through to ch
 This extension has been the most reliable to me and, IT JUST WORKS, no pun intended.
 
 
+# How to add extensions yourself [Coming soon]
+It's actually quite simple, I use brave since it has a simplefied element view by usin g right-click block element (But not actually block it) and will show you the name of the element you need to put in for it to work.
+
+
+
 # ORIGINAL DESCRIPTION
 
 This is a [user script](https://en.wikipedia.org/wiki/Userscript) that adds a processing queue to the web ui of [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui). There is also an option to save one or more sets of settings for quickly loading them again later. 
