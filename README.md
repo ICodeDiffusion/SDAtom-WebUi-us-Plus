@@ -10,8 +10,7 @@ Complete Adetailer capabilities.
 Add other extensions and do built-in ones as well.
 
 # Completed Changes:
-Latest Forge Now works!, Under this branch:
-https://github.com/ICodeDiffusion/SDAtom-WebUi-us-Plus/tree/Latest-Forge-SDAtom-WebUi-us-Plus
+Latest Forge Now works!, Under this branch now.
 
 # Why am I doing this?
 
