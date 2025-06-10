@@ -1,13 +1,20 @@
 # SDAtom-WebUi-us-Plus
-# reForge Compatible only.
-Newest Forge does not work with this due to the checkpoint selection ui element being renamed and is not detecting it after updating this. It might be over my skill set to make it work for now.
+# reForge Compatible, Newest Forge now Compatible!
 
 I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly!
 
 Audio Notifications work, it also has it's own as well. So you can have notification mp3 alongside SD-ATOM's notification.
 
 
-# Why New Forge and some UI elements won't work.
+# Latest Forge now works!
+
+I found a way to fix this extension to work on the newest forge!
+
+This branch is the one you want for newest forge!
+https://github.com/ICodeDiffusion/SDAtom-WebUi-us-Plus/tree/Latest-Forge-SDAtom-WebUi-us-Plus
+
+# Original Reason why it didn't work:
+
 Ok so when I add the settings to be carried over to this extension they have a name to each one, however some settings are auto generated a name upon installation and are given a component id instead of a name.
 
 New Forge UI for Checkpoint selection has the same thing "component-1370", but reForge & old forge have something like this instead "setting_sd_model_checkpoint".
