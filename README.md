@@ -8,7 +8,10 @@ I am first adding adteiler extension capabilities, I got this to work with some 
 # Roadmap:
 Complete Adetailer capabilities.
 Add other extensions and do built-in ones as well.
-Add reFoprge(I have a working prototype I been using for like a month now) & Latest forge capabilities (this will take longer)
+
+# Completed Changes:
+Latest Forge Now works!, Under this branch:
+https://github.com/ICodeDiffusion/SDAtom-WebUi-us-Plus/tree/Latest-Forge-SDAtom-WebUi-us-Plus
 
 # Why am I doing this?
 
