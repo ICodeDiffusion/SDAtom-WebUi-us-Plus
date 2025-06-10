@@ -23,7 +23,7 @@
             t2iContainer:{sel:"#tab_txt2img"},
             i2iContainer:{sel:"#tab_img2img"},
             extContainer:{sel:"#tab_extras"},
-            sdModelCheckpoint:{grad:"setting_sd_model_checkpoint"},
+            sdModelCheckpoint:{sel: "#quicksettings > div.model_selection input"},
             versionContainer:{sel:"#footer .versions"},
 
             working:false,
@@ -42,12 +42,10 @@
 
             sample: {sel:"#txt2img_steps [id^=range_id]",sel2:"#txt2img_steps input"},
             sampleMethod: {grad:"txt2img_sampling"},
+            scheduleType: {grad:"txt2img_scheduler"},
 
             width:  {sel:"#txt2img_width [id^=range_id]",sel2:"#txt2img_width input"},
             height: {sel:"#txt2img_height [id^=range_id]",sel2:"#txt2img_height input"},
-
-            restoreFace: {sel:"#txt2img_settings #setting_face_restoration input"},
-            tiling: {sel:"#txt2img_settings #setting_tiling input"},
 
             highresFix: {sel:"#txt2img_hr"},
             hrFixUpscaler: {grad:"txt2img_hr_upscaler"},
@@ -56,6 +54,8 @@
             hrFixUpscaleBy: {sel:"#txt2img_hr_scale [id^=range_id]",sel2:"#txt2img_hr_scale input"},
             hrFixWidth: {sel:"#txt2img_hr_resize_x [id^=range_id]",sel2:"#txt2img_hr_resize_x input"},
             hrFixHeight: {sel:"#txt2img_hr_resize_y [id^=range_id]",sel2:"#txt2img_hr_resize_y input"},
+            hrFixSampler: {grad:"hr_sampler"},
+            hrFixScheduler: {grad:"hr_scheduler"},            
 
             batchCount: {sel:"#txt2img_batch_count [id^=range_id]",sel2:"#txt2img_batch_count input"},
             batchSize: {sel:"#txt2img_batch_size [id^=range_id]",sel2:"#txt2img_batch_size input"},
@@ -71,6 +71,7 @@
             varRSFHeight: {sel:"#txt2img_seed_resize_from_h [id^=range_id]",sel2:"#txt2img_seed_resize_from_h input"},
 
             scriptadetailer: {sel:"#script_txt2img_adetailer_ad_main_accordion input"},
+            scriptadetailerModel:{grad:"script_txt2img_adetailer_ad_model"},
             scriptadetailerPositivePrompt:{sel:"#script_txt2img_adetailer_ad_prompt textarea"},
             scriptadetailerNegativePrompt:{sel:"#script_txt2img_adetailer_ad_negative_prompt textarea"},
             scriptadetailerDetection: {sel:"#script_txt2img_adetailer_ad_confidence [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_confidence input"},
@@ -79,13 +80,7 @@
             scriptadetailerMaskMaxRatio: {sel:"#script_txt2img_adetailer_ad_mask_max_ratio [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_mask_max_ratio input"},
             scriptadetailerDenoise: {sel:"#script_txt2img_adetailer_ad_denoising_strength [id^=range_id]",sel2:"#script_txt2img_adetailer_ad_denoising_strength input"},
 
-            scriptRegionalPrompter: {sel:"#RP_activet2i input"},
-            scriptRegionalPrompterBaseRatio:{sel:"#RP_base_ratiot2i textarea"},
-            scriptRegionalPrompterCommon: {sel:"#RP_usebaset2i input"},
-            scriptRegionalPrompterCommon: {sel:"#RP_usecommont2i input"},
-            scriptRegionalPrompterNeg: {sel:"#RP_usecommon_negativet2i input"},
-            scriptRegionalPrompterMainSplitting: {sel:"#RP_main_splittingt2i input"},
-            scriptRegionalPrompterDivideRatio:{sel:"#RP_divide_ratiot2i textarea"},
+            scriptdetaildaemon: {sel:"#script_txt2img_detail_daemon_detail-daemon input"},
 
             script: {grad:"script_list",gradIndex:0},
 
@@ -123,6 +118,7 @@
             negPrompt: {sel:"#img2img_neg_prompt textarea"},
 
             resizeMode: {sel:"#resize_mode"},
+            resizeBy: {sel:"#img2img_scale [id^=range_id]",se2:"#img2img_scale input"},
 
             inpaintBlur: {sel:"#img2img_mask_blur [id^=range_id]",sel2:"#img2img_mask_blur"},
             inpaintMaskMode: {sel:"#img2img_mask_mode"},
@@ -141,9 +137,6 @@
             width:  {sel:"#img2img_width [id^=range_id]",sel2:"#img2img_width input"},
             height: {sel:"#img2img_height [id^=range_id]",sel2:"#img2img_height input"},
 
-            restoreFace: {sel:"#img2img_settings #setting_face_restoration input"},
-            tiling: {sel:"#img2img_settings #setting_tiling input"},
-
             batchCount: {sel:"#img2img_batch_count [id^=range_id]",sel2:"#img2img_batch_count input"},
             batchSize: {sel:"#img2img_batch_size [id^=range_id]",sel2:"#img2img_batch_size input"},
 
@@ -158,6 +151,16 @@
             varStr: {sel:"#img2img_subseed_strength input",sel2:"#img2img_subseed_strength [id^=range_id]"},
             varRSFWidth: {sel:"#img2img_seed_resize_from_w input",sel2:"#img2img_seed_resize_from_w [id^=range_id]"},
             varRSFHeight: {sel:"#img2img_seed_resize_from_h input",sel2:"#img2img_seed_resize_from_h [id^=range_id]"},
+
+            scriptadetailer: {sel:"#script_img2img_adetailer_ad_main_accordion input"},
+            scriptadetailerModel:{grad:"script_img2img_adetailer_ad_model"},
+            scriptadetailerPositivePrompt:{sel:"#script_img2img_adetailer_ad_prompt textarea"},
+            scriptadetailerNegativePrompt:{sel:"#script_img2img_adetailer_ad_negative_prompt textarea"},
+            scriptadetailerDetection: {sel:"#script_img2img_adetailer_ad_confidence [id^=range_id]",sel2:"#script_img2img_adetailer_ad_confidence input"},
+            scriptadetailerMaskK: {sel:"#script_img2img_adetailer_ad_mask_k [id^=range_id]",sel2:"#script_img2img_adetailer_ad_mask_k input"},
+            scriptadetailerMaskMinRatio: {sel:"#script_img2img_adetailer_ad_mask_min_ratio [id^=range_id]",sel2:"#script_img2img_adetailer_ad_mask_min_ratio input"},
+            scriptadetailerMaskMaxRatio: {sel:"#script_img2img_adetailer_ad_mask_max_ratio [id^=range_id]",sel2:"#script_img2img_adetailer_ad_mask_max_ratio input"},
+            scriptadetailerDenoise: {sel:"#script_img2img_adetailer_ad_denoising_strength [id^=range_id]",sel2:"#script_img2img_adetailer_ad_denoising_strength input"},
 
             script: {grad:"script_list",gradIndex:1},
 
@@ -250,167 +253,170 @@
 
 
         },
-		extensions: {
-			iBrowser: {
-				name:"stable-diffusion-webui-images-browser",
-				existCheck:{sel:"#tab_image_browser"},
-				guiElems: {
-					iBrowserContainer:{sel:"#tab_image_browser"},
-					generationInfo: {sel: "#image_browser_tab_txt2img_image_browser_file_info textarea"},
+        extensions: {
+            iBrowser: {
+                name:"stable-diffusion-webui-images-browser",
+                existCheck:{sel:"#tab_image_browser"},
+                guiElems: {
+                    iBrowserContainer:{sel:"#tab_image_browser"},
+                    generationInfo: {sel: "#image_browser_tab_txt2img_image_browser_file_info textarea"},
 
-					txt2img:{sel:'#image_browser_tab_txt2img_image_browser_file_info textarea'},
-					img2img:{sel:'#image_browser_tab_img2img_image_browser_file_info textarea'},
-					txt2imgG:{sel:'#image_browser_tab_txt2img-grids_image_browser_file_info textarea'},
-					img2imgG:{sel:'#image_browser_tab_img2img-grids_image_browser_file_info textarea'},
-					extras:{sel:'#image_browser_tab_extras_image_browser_file_info textarea'},
-					favorites:{sel:'#image_browser_tab_favorites_image_browser_file_info textarea'},
-				},
-				ui:{},
-				text:{
-					queueVariationsButtonText:'Add 5 variations',
-					queueHiResVersionButtonText:'Add HiRes version',
-				},
-				functions: {
-					getValueJSON: function () {
-						awqLog('iBrowser.getValueJSON: parsing data');
-						let valueJSON = {type:'t2i'};
+                    txt2img:{sel:'#image_browser_tab_txt2img_image_browser_file_info textarea'},
+                    img2img:{sel:'#image_browser_tab_img2img_image_browser_file_info textarea'},
+                    txt2imgG:{sel:'#image_browser_tab_txt2img-grids_image_browser_file_info textarea'},
+                    img2imgG:{sel:'#image_browser_tab_img2img-grids_image_browser_file_info textarea'},
+                    extras:{sel:'#image_browser_tab_extras_image_browser_file_info textarea'},
+                    favorites:{sel:'#image_browser_tab_favorites_image_browser_file_info textarea'},
+                },
+                ui:{},
+                text:{
+                    queueVariationsButtonText:'Add 5 variations',
+                    queueHiResVersionButtonText:'Add HiRes version',
+                },
+                functions: {
+                    getValueJSON: function () {
+                        awqLog('iBrowser.getValueJSON: parsing data');
+                        let valueJSON = {type:'t2i'};
 
-						let currentTab = document.querySelector('#image_browser_tabs_container button.selected').innerHTML;
-						currentTab = currentTab.replace(/\s/g,'');
-						currentTab = currentTab.replace('-grids','G').toLowerCase();
+                        let currentTab = document.querySelector('#image_browser_tabs_container button.selected').innerHTML;
+                        currentTab = currentTab.replace(/\s/g,'');
+                        currentTab = currentTab.replace('-grids','G').toLowerCase();
 
-						let generationInfoValue = conf.extensions.iBrowser.guiElems[currentTab].el.value;
+                        let generationInfoValue = conf.extensions.iBrowser.guiElems[currentTab].el.value;
 
-						//Used when loading prompt from image browser
-						/*
-						Kind of using the logic from generation_parameters_copypaste.py/parse_generation_parameters (but not really, because that doesn't account for Template/Negative Template)
-						Structure
-						<prompt>
-						Negative prompt: <negative prompt>
-						a1: b1, a2: b2, etc
-						Template: <template>
-						Negative Template: <negative template>
+                        //Used when loading prompt from image browser
+                        /*
+                        Kind of using the logic from generation_parameters_copypaste.py/parse_generation_parameters (but not really, because that doesn't account for Template/Negative Template)
+                        Structure
+                        <prompt>
+                        Negative prompt: <negative prompt>
+                        a1: b1, a2: b2, etc
+                        Template: <template>
+                        Negative Template: <negative template>
 
-						<prompt>, <negative prompt>, <template> and <negative template> can all be multiline, or missing.
-						Maybe assume that <prompt> is never missing?
-						*/
-						let lines = generationInfoValue.split(/\r?\n/);
-						let whichLine=0; //0=prompt, 1=negPrompt, 2=template, 3=negTemplate, 4: dictionary
-						valueJSON['prompt']='';
-						valueJSON['negPrompt']='';
+                        <prompt>, <negative prompt>, <template> and <negative template> can all be multiline, or missing.
+                        Maybe assume that <prompt> is never missing?
+                        */
+                        let lines = generationInfoValue.split(/\r?\n/);
+                        let whichLine=0; //0=prompt, 1=negPrompt, 2=template, 3=negTemplate, 4: dictionary
+                        valueJSON['prompt']='';
+                        valueJSON['negPrompt']='';
 
-						for (let l of lines) {
-							if (l.startsWith("Negative prompt: ")) {
-								whichLine=1;
-								l=l.substring(17);
-							}
-							else if (l.startsWith("Template: ")) {
-								whichLine=2;
-								l=l.substring(10);
-							}
-							else if (l.startsWith("Negative Template: ")) {
-								whichLine=3;
-								l=l.substring(19);
-							}
-							else if (l.startsWith("Steps: ")) {
-								whichLine=4;
-							}
+                        for (let l of lines) {
+                            if (l.startsWith("Negative prompt: ")) {
+                                whichLine=1;
+                                l=l.substring(17);
+                            }
+                            else if (l.startsWith("Template: ")) {
+                                whichLine=2;
+                                l=l.substring(10);
+                            }
+                            else if (l.startsWith("Negative Template: ")) {
+                                whichLine=3;
+                                l=l.substring(19);
+                            }
+                            else if (l.startsWith("Steps: ")) {
+                                whichLine=4;
+                            }
 
-							switch (whichLine) {
-								case 0:
-									valueJSON['prompt']+=l;
-									break;
-								case 1:
-									valueJSON['negPrompt']+=l;
-									break;
-								case 2:
-									//ignore template
-									break;
-								case 3:
-									//ignore neg template
-									break;
-								case 4:
-									for (let v of l.split(/, /)) {
-										let kv=v.split(/: /);
-										let key=kv[0];
-										switch (kv[0]){
-										case "Steps":
-											valueJSON['sample']=kv[1];
-											break;
-										case "Sampler":
-											valueJSON['sampleMethod']=kv[1];
-											break;
-										case "CFG scale":
-											valueJSON['cfg']=kv[1];
-											break;
-										case "Seed":
-											valueJSON['seed']=kv[1];
-											break;
-										case "Size":
-											let wh=kv[1].split(/x/)
-											valueJSON['width']=wh[0];
-											valueJSON['height']=wh[1];
-											break;
-										case "Model":
-											valueJSON['sdModelCheckpoint']=kv[1];
-											break;
-										case "Denoising strength":
-											valueJSON['hrFixdenoise']=kv[1];
-											break;
-										case "Hires upscale":
-											valueJSON['hrFixUpscaleBy']=kv[1];
-											valueJSON['highresFix']=true;
-											break;
-										case "Hires upscaler":
-											valueJSON['hrFixUpscaler']=kv[1];
-											break;
-										}
-									}
-									break;
-							} // End of switch
-						} // End of for
-						return JSON.stringify(valueJSON);
-					},
-				}, // End of functions
-			}, // End of iBrowser
-		},
+                            switch (whichLine) {
+                                case 0:
+                                    valueJSON['prompt']+=l;
+                                    break;
+                                case 1:
+                                    valueJSON['negPrompt']+=l;
+                                    break;
+                                case 2:
+                                    //ignore template
+                                    break;
+                                case 3:
+                                    //ignore neg template
+                                    break;
+                                case 4:
+                                    for (let v of l.split(/, /)) {
+                                        let kv=v.split(/: /);
+                                        let key=kv[0];
+                                        switch (kv[0]){
+                                        case "Steps":
+                                            valueJSON['sample']=kv[1];
+                                            break;
+                                        case "Sampler":
+                                            valueJSON['sampleMethod']=kv[1];
+                                            break;
+                                        case "Scheduler":
+                                            valueJSON['scheduleType']=kv[1];
+                                            break;
+                                        case "CFG scale":
+                                            valueJSON['cfg']=kv[1];
+                                            break;
+                                        case "Seed":
+                                            valueJSON['seed']=kv[1];
+                                            break;
+                                        case "Size":
+                                            let wh=kv[1].split(/x/)
+                                            valueJSON['width']=wh[0];
+                                            valueJSON['height']=wh[1];
+                                            break;
+                                        case "Model":
+                                            valueJSON['sdModelCheckpoint']=kv[1];
+                                            break;
+                                        case "Denoising strength":
+                                            valueJSON['hrFixdenoise']=kv[1];
+                                            break;
+                                        case "Hires upscale":
+                                            valueJSON['hrFixUpscaleBy']=kv[1];
+                                            valueJSON['highresFix']=true;
+                                            break;
+                                        case "Hires upscaler":
+                                            valueJSON['hrFixUpscaler']=kv[1];
+                                            break;
+                                        }
+                                    }
+                                    break;
+                            } // End of switch
+                        } // End of for
+                        return JSON.stringify(valueJSON);
+                    },
+                }, // End of functions
+            }, // End of iBrowser
+        },
 
         ui:{},
-		scriptSettings: {
-			defaultQuantity:{name:"Default queue quantity", description:"Default number of times to execute each queue item", type:"numeric",value:"1"},
-			rememberQueue:{name:"Remember queue", description:"Remember the queue if you reload the page", type:"boolean",value:true},
-			notificationSound:{name:"Notification sound", description:"Sound to be played when processing of queue items stops", type:"boolean",value:true},
-			extensionScript:{name:"Extension script(s)", description:"https://github.com/Kryptortio/SDAtom-WebUi-us#script-extensions", type:"text",value:""},
-			promptFilter:{name:"Prompt filter(s)", description:"https://github.com/Kryptortio/SDAtom-WebUi-us#prompt-filter", type:"text",value:""},
-			promptFilterNegative:{name:"Filter negative prompt", description:"Apply the prompt filter to the negative filter as well", type:"boolean",value:false},
-			autoscrollOutput:{name:"Autoscroll console", description:"Scroll console automatically when new lines appear", type:"boolean",value:true},
-			verboseLog:{name:"Verbose console", description:"Log as much as possible to the console", type:"boolean",value:false},
-			maxOutputLines:{name:"Max console lines", description:"The maximum number of lines that can be shown in the console box", type:"numeric",value:"500"},
-			overwriteQueueSettings1:{name:"Alt 1 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 1 button to add to queue (same format as in the queue)", type:"text",value:'{"width":"768","height":"768"}'},
-			overwriteQueueSettings2:{name:"Alt 2 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 2 button to add to queue (same format as in the queue)", type:"text",value:'{"width":"1024","height":"1024"}'},
-			overwriteQueueSettings3:{name:"Alt 3 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 3 button to add to queue (same format as in the queue)", type:"text",value:'{"sample":"20","sampleMethod":"Euler a","width":"512","height":"512","restoreFace": false,"tiling": false,"batchCount": "1","batchSize": "1","cfg": "7","seed": "-1","extra": false,  "varSeed": "-1","varStr": "0"}'},
+        scriptSettings: {
+            defaultQuantity:{name:"Default queue quantity", description:"Default number of times to execute each queue item", type:"numeric",value:"1"},
+            rememberQueue:{name:"Remember queue", description:"Remember the queue if you reload the page", type:"boolean",value:true},
+            notificationSound:{name:"Notification sound", description:"Sound to be played when processing of queue items stops", type:"boolean",value:true},
+            extensionScript:{name:"Extension script(s)", description:"https://github.com/Kryptortio/SDAtom-WebUi-us#script-extensions", type:"text",value:""},
+            promptFilter:{name:"Prompt filter(s)", description:"https://github.com/Kryptortio/SDAtom-WebUi-us#prompt-filter", type:"text",value:""},
+            promptFilterNegative:{name:"Filter negative prompt", description:"Apply the prompt filter to the negative filter as well", type:"boolean",value:false},
+            autoscrollOutput:{name:"Autoscroll console", description:"Scroll console automatically when new lines appear", type:"boolean",value:true},
+            verboseLog:{name:"Verbose console", description:"Log as much as possible to the console", type:"boolean",value:false},
+            maxOutputLines:{name:"Max console lines", description:"The maximum number of lines that can be shown in the console box", type:"numeric",value:"500"},
+            overwriteQueueSettings1:{name:"Alt 1 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 1 button to add to queue (same format as in the queue)", type:"text",value:'{"width":"768","height":"768"}'},
+            overwriteQueueSettings2:{name:"Alt 2 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 2 button to add to queue (same format as in the queue)", type:"text",value:'{"width":"1024","height":"1024"}'},
+            overwriteQueueSettings3:{name:"Alt 3 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 3 button to add to queue (same format as in the queue)", type:"text",value:'{"sample":"20","sampleMethod":"Euler a","width":"512","height":"512","restoreFace": false,"tiling": false,"batchCount": "1","batchSize": "1","cfg": "7","seed": "-1","extra": false,  "varSeed": "-1","varStr": "0"}'},
             buttonOpacity:{name:"Button transparency", description:"Change how visible the floating buttons in the corner should be", type:"numeric",value:0.7},
-		},
+        },
         savedSetting: JSON.parse(localStorage.awqSavedSetting || '{}'),
         currentQueue: JSON.parse(localStorage.awqCurrentQueue || '[]'),
     };
 
-	if(localStorage.hasOwnProperty("awqNotificationSound") &&
-		!localStorage.hasOwnProperty("awqScriptSettings")) { // Tmp settings migration
-		awqLog('Copying settings from old storage');
-		if (localStorage.hasOwnProperty("awqNotificationSound"))
-			conf.scriptSettings.notificationSound.value = localStorage.awqNotificationSound == 1 ? true : false;
-		if (localStorage.hasOwnProperty("awqAutoscrollOutput"))
-			conf.scriptSettings.autoscrollOutput.value = localStorage.awqAutoscrollOutput == 1 ? true : false;
-		if (localStorage.hasOwnProperty("awqVerboseLog"))
-			conf.scriptSettings.verboseLog.value = localStorage.awqVerboseLog == 1 ? true : false;
-		if (localStorage.hasOwnProperty("awqMaxOutputLines"))
-			conf.scriptSettings.maxOutputLines.value = localStorage.awqMaxOutputLines;
-		if (localStorage.hasOwnProperty("awqPromptFilter"))
-			conf.scriptSettings.promptFilter.value = localStorage.awqPromptFilter;
-		if (localStorage.hasOwnProperty("awqExtensionScript"))
-			conf.scriptSettings.extensionScript.value = localStorage.awqExtensionScript;
-	}
+    if(localStorage.hasOwnProperty("awqNotificationSound") &&
+        !localStorage.hasOwnProperty("awqScriptSettings")) { // Tmp settings migration
+        awqLog('Copying settings from old storage');
+        if (localStorage.hasOwnProperty("awqNotificationSound"))
+            conf.scriptSettings.notificationSound.value = localStorage.awqNotificationSound == 1 ? true : false;
+        if (localStorage.hasOwnProperty("awqAutoscrollOutput"))
+            conf.scriptSettings.autoscrollOutput.value = localStorage.awqAutoscrollOutput == 1 ? true : false;
+        if (localStorage.hasOwnProperty("awqVerboseLog"))
+            conf.scriptSettings.verboseLog.value = localStorage.awqVerboseLog == 1 ? true : false;
+        if (localStorage.hasOwnProperty("awqMaxOutputLines"))
+            conf.scriptSettings.maxOutputLines.value = localStorage.awqMaxOutputLines;
+        if (localStorage.hasOwnProperty("awqPromptFilter"))
+            conf.scriptSettings.promptFilter.value = localStorage.awqPromptFilter;
+        if (localStorage.hasOwnProperty("awqExtensionScript"))
+            conf.scriptSettings.extensionScript.value = localStorage.awqExtensionScript;
+    }
     const c_emptyQueueString = 'Queue is empty';
     const c_addToQueueButtonText = 'Add to queue';
     const c_processButtonText = 'Process queue';
@@ -427,9 +433,9 @@
     const c_any_value = '<ANY VALUE>';
 
     // ----------------------------------------------------------------------------- Logging
-	function preAwqLog(p_message) {
-		console.log(`SDAtom-WebUi-us: ${p_message}`);
-	}
+    function preAwqLog(p_message) {
+        console.log(`SDAtom-WebUi-us: ${p_message}`);
+    }
     preAwqLog(`Running SDAtom-WebUi-us version ${c_scriptVersion} using ${c_scriptHandeler} with browser ${window.navigator.userAgent}`);
 
     function awqLog(p_message) {
@@ -445,7 +451,7 @@
         }
         let lines = conf.ui.outputConsole.querySelectorAll('div');
         let line = document.createElement('div');
-		line.className = 'awq-console-line';
+        line.className = 'awq-console-line';
         const timestamp = (new Date()).toLocaleTimeString([], {hour: '2-digit',minute: '2-digit',second: '2-digit', hour12: false});
         line.innerHTML = '<span style="' + (p_color ? 'color:'+p_color : '') + '">' + timestamp + ': ' + p_message + '</span>';
         conf.ui.outputConsole.appendChild(line);
@@ -485,24 +491,24 @@
     // ----------------------------------------------------------------------------- Wait for content to load
     let waitForLoadInterval = setInterval(initAWQ, c_wait_tick_duration);
     function initAWQ() {
-		window.awqConf = conf;
+        window.awqConf = conf;
         conf.shadowDOM.root = document.querySelector(conf.shadowDOM.sel);
         if(!conf.shadowDOM.root || !conf.shadowDOM.root.querySelector('#txt2img_prompt')) return;
         clearInterval(waitForLoadInterval);
 
         conf.commonData.versionContainer.el = conf.shadowDOM.root.querySelector('#footer .versions');
 
-		// Check for extensions
-		for(let ext in conf.extensions) {
-			if(!document.querySelector(conf.extensions[ext].existCheck.sel)) {
-				preAwqLog(`Extension ${conf.extensions[ext].name} not found, disabling`);
-				conf.extensions[ext] = false;
-			} else {
-				preAwqLog(`Extension ${conf.extensions[ext].name} found`);
-			}
-		}
+        // Check for extensions
+        for(let ext in conf.extensions) {
+            if(!document.querySelector(conf.extensions[ext].existCheck.sel)) {
+                preAwqLog(`Extension ${conf.extensions[ext].name} not found, disabling`);
+                conf.extensions[ext] = false;
+            } else {
+                preAwqLog(`Extension ${conf.extensions[ext].name} found`);
+            }
+        }
 
-		loadScriptSettings();
+        loadScriptSettings();
         generateMainUI();
 
         try { throw new Error(); } catch(e) { awqLog(`initAWQ: stack = ${e.stack.replace(/^(.*?)\binitAWQ/s,'')}`) }
@@ -564,39 +570,39 @@
     }
 
     function generateMainUI() {
-		let awqCSSElem = document.createElement('style');
-		awqCSSElem.innerHTML = `
+        let awqCSSElem = document.createElement('style');
+        awqCSSElem.innerHTML = `
 #AWQ-container {
-	background:var(--background-fill-primary);
+    background:var(--background-fill-primary);
 }
 #AWQ-container button {
-	border:var(--button-border-width) solid var(--button-secondary-border-color);
-	background:var(--button-secondary-background-fill);
-	color:var(--button-secondary-text-color);
+    border:var(--button-border-width) solid var(--button-secondary-border-color);
+    background:var(--button-secondary-background-fill);
+    color:var(--button-secondary-text-color);
 }
 #AWQ-container input, #AWQ-container select, #AWQ-container .awq-console-line,
 #awq-script-settings-popup input, #awq-script-settings-popup textarea {
-	box-shadow: var(--input-shadow);
-	border: var(--input-border-width) solid var(--input-border-color);
-	border-radius: var(--input-radius);
-	background: var(--input-background-fill);
-	color: var(--body-text-color);
+    box-shadow: var(--input-shadow);
+    border: var(--input-border-width) solid var(--input-border-color);
+    border-radius: var(--input-radius);
+    background: var(--input-background-fill);
+    color: var(--body-text-color);
 }
 #AWQ-container input.completed-queue-item {
-	background:var(--button-secondary-background-fill);
-	color:var(--button-secondary-text-color);
+    background:var(--button-secondary-background-fill);
+    color:var(--button-secondary-text-color);
 }
 #AWQ-container .awq-console-line {
-	border-radius: unset;
+    border-radius: unset;
 }
 #awq-script-settings-popup {
-	background:var(--background-fill-primary);
+    background:var(--background-fill-primary);
 }
 #awq-script-settings-popup label, #awq-script-settings-popup span {
-	color: var(--block-title-text-color);
+    color: var(--block-title-text-color);
 }
 `;
-		document.head.appendChild(awqCSSElem);
+        document.head.appendChild(awqCSSElem);
 
         let container = document.createElement('div');
         container.id = 'AWQ-container';
@@ -608,7 +614,7 @@
         document.body.appendChild(container);
 
         let addToQueueButton = appendAddToQueueButton(container, 0, c_addToQueueButtonText, appendQueueItem, "Add an item to the queue according to current tab and settings");
-		let addToQueueButtonA1 = appendAddToQueueButton(container, 25, 'A1', () => {appendQueueItem(null, null, null, JSON.parse(conf.scriptSettings.overwriteQueueSettings1.value)) }, "Add an item to the queue according to current tab and settings and overwrite with Alt 1",63);
+        let addToQueueButtonA1 = appendAddToQueueButton(container, 25, 'A1', () => {appendQueueItem(null, null, null, JSON.parse(conf.scriptSettings.overwriteQueueSettings1.value)) }, "Add an item to the queue according to current tab and settings and overwrite with Alt 1",63);
         let addToQueueButtonA2 = appendAddToQueueButton(container, 25, 'A2', () => {appendQueueItem(null, null, null, JSON.parse(conf.scriptSettings.overwriteQueueSettings2.value)) }, "Add an item to the queue according to current tab and settings and overwrite with Alt 2",32);
         let addToQueueButtonA3 = appendAddToQueueButton(container, 25, 'A3', () => {appendQueueItem(null, null, null, JSON.parse(conf.scriptSettings.overwriteQueueSettings3.value)) }, "Add an item to the queue according to current tab and settings and overwrite with Alt 3",1);
         let unsupportedButton = appendAddToQueueButton(container, 0, 'Tab not supported', function(){}, "Not supported");
@@ -622,7 +628,7 @@
         defaultQueueQuantity.style.width = '50px';
         defaultQueueQuantity.type = 'number';
         defaultQueueQuantity.title = "How many items of each will be added to the queue (default is 1)";
-		defaultQueueQuantity.value = conf.scriptSettings.defaultQuantity.value;
+        defaultQueueQuantity.value = conf.scriptSettings.defaultQuantity.value;
         defaultQueueQuantity.onchange = function() {conf.scriptSettings.defaultQuantity.value = this.value;};
         defaultQueueQuantity.onfocus = function() {this.select();};
         container.appendChild(defaultQueueQuantity);
@@ -787,8 +793,8 @@
     function appendQueueItem(p_quantity, p_value, p_type, p_overwrite_data) {
         awqLog('appendQueueItem: quantity:' + p_quantity + ' type:' + p_type);
         let quantity = isNaN(p_quantity) || p_quantity == null ?
-			(parseInt(conf.ui.defaultQueueQuantity.value) > 0 ?
-				parseInt(conf.ui.defaultQueueQuantity.value) : 1) : p_quantity;
+            (parseInt(conf.ui.defaultQueueQuantity.value) > 0 ?
+                parseInt(conf.ui.defaultQueueQuantity.value) : 1) : p_quantity;
 
         let queueItem = document.createElement('div');
         queueItem.style.width = c_innerUIWidth;
@@ -819,15 +825,15 @@
         itemQuantity.title = "This is how many times this item should be executed";
         let itemJSON =document.createElement('input');
         itemJSON.classList = 'AWQ-item-JSON';
-		itemJSON.value = p_value || getValueJSON(p_type);
+        itemJSON.value = p_value || getValueJSON(p_type);
         if(p_overwrite_data) {
-			awqLog(`appendQueueItem: Adding to queue with Overwriting: ${JSON.stringify(p_overwrite_data)}`);
-			let jsonData = JSON.parse(itemJSON.value);
-			for(let setKey in p_overwrite_data) {
-				jsonData[setKey] = p_overwrite_data[setKey];
-			}
-			itemJSON.value = JSON.stringify(jsonData);
-		}
+            awqLog(`appendQueueItem: Adding to queue with Overwriting: ${JSON.stringify(p_overwrite_data)}`);
+            let jsonData = JSON.parse(itemJSON.value);
+            for(let setKey in p_overwrite_data) {
+                jsonData[setKey] = p_overwrite_data[setKey];
+            }
+            itemJSON.value = JSON.stringify(jsonData);
+        }
         itemJSON.style.width = "calc(100vw - 290px)";
         itemJSON.style.height = "18px";
         itemJSON.onchange = function() {
@@ -839,9 +845,9 @@
         }
         itemJSON.title = "This is a JSON string with all the settings to be used for this item. Can be changed while processing the queue but will fail if you enter invalid values.";
 
-		let JSONType = itemJSON.value.match(/"type":"([^"]+)"/);
-		JSONType = JSONType ? JSONType[1] : conf.commonData.activeType;
-		itemType.value = p_type || JSONType;
+        let JSONType = itemJSON.value.match(/"type":"([^"]+)"/);
+        JSONType = JSONType ? JSONType[1] : conf.commonData.activeType;
+        itemType.value = p_type || JSONType;
 
         let removeItem =document.createElement('button');
         removeItem.innerHTML = '❌';
@@ -935,127 +941,127 @@
         if(isNaN(p_quantity)) updateQueueState();
     }
 
-	function saveScriptSettings() {
-		awqLog('Saving script settings');
-		let scriptSettingsCopy = structuredClone(conf.scriptSettings);
+    function saveScriptSettings() {
+        awqLog('Saving script settings');
+        let scriptSettingsCopy = structuredClone(conf.scriptSettings);
 
-		// Delete data that does not need to be saved
-		for(let ssk in scriptSettingsCopy) {
-			for(let ssk2 in scriptSettingsCopy[ssk]) {
-				if(ssk2 != 'value') delete scriptSettingsCopy[ssk][ssk2];
-			}
-		}
+        // Delete data that does not need to be saved
+        for(let ssk in scriptSettingsCopy) {
+            for(let ssk2 in scriptSettingsCopy[ssk]) {
+                if(ssk2 != 'value') delete scriptSettingsCopy[ssk][ssk2];
+            }
+        }
 
-		conf.ui.defaultQueueQuantity.value = conf.scriptSettings.defaultQuantity.value; // Update beacuse this one is in two places
-		localStorage.awqScriptSettings = JSON.stringify(scriptSettingsCopy);
-	}
+        conf.ui.defaultQueueQuantity.value = conf.scriptSettings.defaultQuantity.value; // Update beacuse this one is in two places
+        localStorage.awqScriptSettings = JSON.stringify(scriptSettingsCopy);
+    }
 
-	function loadScriptSettings(p_scriptSettings) {
-		if(!localStorage.hasOwnProperty("awqScriptSettings") || !isJsonString(localStorage.awqScriptSettings)) return;
-		awqLog('Loding saved script settings');
+    function loadScriptSettings(p_scriptSettings) {
+        if(!localStorage.hasOwnProperty("awqScriptSettings") || !isJsonString(localStorage.awqScriptSettings)) return;
+        awqLog('Loding saved script settings');
 
-		let savedSettings = p_scriptSettings || JSON.parse(localStorage.awqScriptSettings);
-		for(let ssk in conf.scriptSettings) {
-			if(savedSettings.hasOwnProperty(ssk)) conf.scriptSettings[ssk].value =  savedSettings[ssk].value;
-		}
-	}
+        let savedSettings = p_scriptSettings || JSON.parse(localStorage.awqScriptSettings);
+        for(let ssk in conf.scriptSettings) {
+            if(savedSettings.hasOwnProperty(ssk)) conf.scriptSettings[ssk].value =  savedSettings[ssk].value;
+        }
+    }
 
-	function openScriptSettingsPopup() {
-		let dialog = document.createElement('span');
-		dialog.id = 'awq-script-settings-popup';
-		dialog.className = document.querySelector('gradio-app > div').classList.contains('dark') ? 'dark' : '';
-		dialog.style.minWidth = '90%';
-		dialog.style.minHeight = '90%';
-		dialog.style.marginLeft = '5%';
-		dialog.style.marginTop = '5%';
-		dialog.style.top = '0';
-		dialog.style.position = 'fixed';
-		dialog.style.zIndex = '1000';
-		dialog.style.borderRadius = '15px';
-		dialog.style.boxShadow = '3px 3px 100px black,3px 3px 500px black, 3px 3px 25px black, inset 0 0 10px black';
+    function openScriptSettingsPopup() {
+        let dialog = document.createElement('span');
+        dialog.id = 'awq-script-settings-popup';
+        dialog.className = document.querySelector('gradio-app > div').classList.contains('dark') ? 'dark' : '';
+        dialog.style.minWidth = '90%';
+        dialog.style.minHeight = '90%';
+        dialog.style.marginLeft = '5%';
+        dialog.style.marginTop = '5%';
+        dialog.style.top = '0';
+        dialog.style.position = 'fixed';
+        dialog.style.zIndex = '1000';
+        dialog.style.borderRadius = '15px';
+        dialog.style.boxShadow = '3px 3px 100px black,3px 3px 500px black, 3px 3px 25px black, inset 0 0 10px black';
 
-		let titleText = document.createElement('span');
-		titleText.innerHTML = '<b>Script settings</b> - <i>hold your mouse over an item for a description</i>';
-		titleText.style.top = '5px';
-		titleText.style.left = '10px';
-		titleText.style.position = 'absolute';
+        let titleText = document.createElement('span');
+        titleText.innerHTML = '<b>Script settings</b> - <i>hold your mouse over an item for a description</i>';
+        titleText.style.top = '5px';
+        titleText.style.left = '10px';
+        titleText.style.position = 'absolute';
 
-		let closeButton = document.createElement('span');
-		closeButton.style.position = 'absolute';
-		closeButton.style.top = '5px';
-		closeButton.style.right = '10px';
-		closeButton.style.textShadow = '#292929 2px 3px 5px';
-		closeButton.style.cursor = 'pointer';
-		closeButton.onclick = function() {document.body.removeChild(dialog); saveScriptSettings();};
-		closeButton.innerHTML = '⛌';
+        let closeButton = document.createElement('span');
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '5px';
+        closeButton.style.right = '10px';
+        closeButton.style.textShadow = '#292929 2px 3px 5px';
+        closeButton.style.cursor = 'pointer';
+        closeButton.onclick = function() {document.body.removeChild(dialog); saveScriptSettings();};
+        closeButton.innerHTML = '⛌';
 
-		let dialogBody = document.createElement('span');
-		dialogBody.style.width = '90%';
-		dialogBody.style.height = '90%';
-		dialogBody.style.marginLeft = '5%';
-		dialogBody.style.marginTop = 'max(5%,45px)';
-		dialogBody.style.top = '0';
-		dialogBody.style.position = 'absolute';
-		dialogBody.style.overflow = 'auto';
-		dialogBody.style.display = 'grid';
-		dialogBody.style.gridAutoFlow = 'row';
-		dialogBody.style.gridTemplateColumns = 'repeat(auto-fit, minmax(200px, 1fr))';
+        let dialogBody = document.createElement('span');
+        dialogBody.style.width = '90%';
+        dialogBody.style.height = '90%';
+        dialogBody.style.marginLeft = '5%';
+        dialogBody.style.marginTop = 'max(5%,45px)';
+        dialogBody.style.top = '0';
+        dialogBody.style.position = 'absolute';
+        dialogBody.style.overflow = 'auto';
+        dialogBody.style.display = 'grid';
+        dialogBody.style.gridAutoFlow = 'row';
+        dialogBody.style.gridTemplateColumns = 'repeat(auto-fit, minmax(200px, 1fr))';
 
-		dialog.appendChild(titleText);
-		dialog.appendChild(closeButton);
-		dialog.appendChild(dialogBody);
+        dialog.appendChild(titleText);
+        dialog.appendChild(closeButton);
+        dialog.appendChild(dialogBody);
 
-		// Create input for each script setting
-		for(let ssKey in conf.scriptSettings) {
-			let ssObj = conf.scriptSettings[ssKey];
+        // Create input for each script setting
+        for(let ssKey in conf.scriptSettings) {
+            let ssObj = conf.scriptSettings[ssKey];
 
-			let ssElem = document.createElement(ssObj.type == 'text' ? 'textarea' : 'input');
-			ssElem.id = 'awq-ss-'+ssKey;
-			ssElem.placeholder = ssObj.name;
-			ssElem.value = ssObj.value;
-			ssElem.style.height = ssObj.type == 'text' ? '40px' : '20px';
-			ssElem.style.marginRight = '20px';
-			ssElem.onchange = function() {
-				conf.scriptSettings[ssKey].value = ssObj.type == 'boolean' ? this.checked : this.value;
-				saveScriptSettings();
-			};
-			if(ssObj.type == 'boolean') ssElem.type = 'checkbox';
-			if(ssObj.type == 'numeric') {
-				ssElem.type = 'number' ;
-				ssElem.inputmode = 'numeric';
-				ssElem.onkeypress = e => { if (e.key.match(/\D/g)) { e.preventDefault();} };
-			}
-			if(ssObj.type == 'boolean') {
-				ssElem.type = 'checkbox';
-				ssElem.checked = ssObj.value;
-			}
+            let ssElem = document.createElement(ssObj.type == 'text' ? 'textarea' : 'input');
+            ssElem.id = 'awq-ss-'+ssKey;
+            ssElem.placeholder = ssObj.name;
+            ssElem.value = ssObj.value;
+            ssElem.style.height = ssObj.type == 'text' ? '40px' : '20px';
+            ssElem.style.marginRight = '20px';
+            ssElem.onchange = function() {
+                conf.scriptSettings[ssKey].value = ssObj.type == 'boolean' ? this.checked : this.value;
+                saveScriptSettings();
+            };
+            if(ssObj.type == 'boolean') ssElem.type = 'checkbox';
+            if(ssObj.type == 'numeric') {
+                ssElem.type = 'number' ;
+                ssElem.inputmode = 'numeric';
+                ssElem.onkeypress = e => { if (e.key.match(/\D/g)) { e.preventDefault();} };
+            }
+            if(ssObj.type == 'boolean') {
+                ssElem.type = 'checkbox';
+                ssElem.checked = ssObj.value;
+            }
 
-			let cbLabel = document.createElement('label');
-			cbLabel.for = ssElem.id;
-			cbLabel.innerHTML = ssObj.name;
-			cbLabel.title = ssObj.description;
+            let cbLabel = document.createElement('label');
+            cbLabel.for = ssElem.id;
+            cbLabel.innerHTML = ssObj.name;
+            cbLabel.title = ssObj.description;
 
-			let ssElemContainer = document.createElement('span');
+            let ssElemContainer = document.createElement('span');
 
-			ssElemContainer.appendChild(cbLabel);
+            ssElemContainer.appendChild(cbLabel);
 
 
-			if(ssObj.description.match("http")) {
-				let helpLink = document.createElement('a');
-				helpLink.innerHTML = '❓';
-				helpLink.target = '_blank';
-				helpLink.href = ssObj.description;
-				helpLink.style.textDecoration = 'none';
-				ssElem.title = ssObj.name;
-				ssElemContainer.appendChild(helpLink);
-			} else {
-				ssElem.title = ssObj.description;
-			}
+            if(ssObj.description.match("http")) {
+                let helpLink = document.createElement('a');
+                helpLink.innerHTML = '❓';
+                helpLink.target = '_blank';
+                helpLink.href = ssObj.description;
+                helpLink.style.textDecoration = 'none';
+                ssElem.title = ssObj.name;
+                ssElemContainer.appendChild(helpLink);
+            } else {
+                ssElem.title = ssObj.description;
+            }
 
-			ssElemContainer.appendChild(ssElem);
+            ssElemContainer.appendChild(ssElem);
 
-			dialogBody.appendChild(ssElemContainer);
-		}
+            dialogBody.appendChild(ssElemContainer);
+        }
 
 
 
@@ -1072,7 +1078,7 @@
         importExportData.style.width = '125px';
         importExportData.title = "Exported data will be show here, add data here to import it. Importing data will reload the page!";
         importExportData.onfocus = function() {this.select();};
-		let importExportContainer = document.createElement('span');
+        let importExportContainer = document.createElement('span');
         importExportContainer.appendChild(importExportButton);
         importExportContainer.appendChild(importExportData);
         dialogBody.appendChild(importExportContainer);
@@ -1263,7 +1269,7 @@
         //                                  *** Search & Replace ***              STOP
 
 
-		document.body.appendChild(dialog);
+        document.body.appendChild(dialog);
 
 
         // Customize behaviour of the opacity button to show immediate effect
@@ -1278,7 +1284,7 @@
                 elem.style.opacity = conf.scriptSettings.buttonOpacity.value;
             });
         };
-	}
+    }
 
     function toggleProcessButton(p_set_processing) {
         awqLog('toggleProcessButton:' + p_set_processing);
@@ -1361,12 +1367,12 @@
             conf.ui.unsupportedButton.style.display = 'block';
         }
 
-		if(conf.commonData.activeType != 'other') {
+        if(conf.commonData.activeType != 'other') {
             conf.ui.addToQueueButton.style.display = 'block';
             conf.ui.addToQueueButtonA1.style.display = 'block';
             conf.ui.addToQueueButtonA2.style.display = 'block';
             conf.ui.addToQueueButtonA3.style.display = 'block';
-		}
+        }
 
         let typeChanged = conf.commonData.activeType !== previousType ? true : false;
         let workingChanged = conf.commonData.working !== previousWorking ? true : false;
@@ -1648,8 +1654,8 @@
 
     function filterPrompt(p_prompt_text, p_neg) {
         let newPromptText = p_prompt_text;
-		let promptFilter = conf.scriptSettings.promptFilter.value.length > 0 ?
-			JSON.parse(conf.scriptSettings.promptFilter.value) : [];
+        let promptFilter = conf.scriptSettings.promptFilter.value.length > 0 ?
+            JSON.parse(conf.scriptSettings.promptFilter.value) : [];
 
         for(let i=0; i < promptFilter.length; i++) {
             if(!promptFilter[i].hasOwnProperty('pattern') ||
@@ -1673,9 +1679,9 @@
         let exportJSON = JSON.stringify({
             savedSetting: conf.savedSetting,
             currentQueue: conf.currentQueue,
-			scriptSettings: JSON.parse(localStorage.awqScriptSettings), // Use localstorage since it has filtered everything except values
+            scriptSettings: JSON.parse(localStorage.awqScriptSettings), // Use localstorage since it has filtered everything except values
         });
-		let exportImportInput = document.getElementById('import-export-data-input');
+        let exportImportInput = document.getElementById('import-export-data-input');
         let importJSON = exportImportInput.value;
 
         if(importJSON.length < 1) {
@@ -1778,8 +1784,8 @@
                 return conf.shadowDOM.root.querySelector(elem.containerSel).style.display == 'none' ? false : true
             })[0].name;
         } else if(type == 'iBrowser') {
-			return conf.extensions.iBrowser.functions.getValueJSON();
-		}
+            return conf.extensions.iBrowser.functions.getValueJSON();
+        }
 
         for (let prop in conf[type]) {
             if(prop !== 'controls') {
@@ -1804,7 +1810,7 @@
             }
         }
 
-        valueJSON.sdModelCheckpoint = getGradVal(conf.commonData.sdModelCheckpoint.gradEl);
+        valueJSON.sdModelCheckpoint = conf.commonData.sdModelCheckpoint.el.value;
         return JSON.stringify(valueJSON);
     }
     async function loadJson(p_json) {
@@ -1813,17 +1819,6 @@
         let oldData = JSON.parse(getValueJSON(type));
         let waitForThisContainer;
         awqLog('loadJson: ' + type);
-
-        let currentModel = getGradVal(conf.commonData.sdModelCheckpoint.gradEl);
-        if(currentModel == inputJSONObject.sdModelCheckpoint) {
-            awqLog('loadJson: Correct model already loaded: ' + currentModel);// No action needed
-        } else if(conf.commonData.sdModelCheckpoint.gradEl.props.choices.includes(inputJSONObject.sdModelCheckpoint)) { // Check if model exists
-            awqLog('loadJson: Trying to load model: ' + inputJSONObject.sdModelCheckpoint);
-            setGradVal(conf.commonData.sdModelCheckpoint.gradEl, inputJSONObject.sdModelCheckpoint);
-			setCheckpointWithPost(inputJSONObject.sdModelCheckpoint); // Only setting gradio config no longer works?
-        } else {
-            awqLogPublishError(`Model ${inputJSONObject.sdModelCheckpoint} was not found, using current model ${currentModel}`);
-        }
 
         if(conf.commonData.activeType != inputJSONObject.type) await switchTabAndWait(inputJSONObject.type); // Switch tab?
 
@@ -1880,27 +1875,27 @@
         forceGradioUIUpdate();
     }
 
-	function waitForElm(selector) {
-		return new Promise(resolve => {
-			if (document.querySelector(selector)) {
-				return resolve(document.querySelector(selector));
-			}
+    function waitForElm(selector) {
+        return new Promise(resolve => {
+            if (document.querySelector(selector)) {
+                return resolve(document.querySelector(selector));
+            }
 
-			const observer = new MutationObserver(mutations => {
-				if (document.querySelector(selector)) {
-					resolve(document.querySelector(selector));
-					observer.disconnect();
-				}
-			});
+            const observer = new MutationObserver(mutations => {
+                if (document.querySelector(selector)) {
+                    resolve(document.querySelector(selector));
+                    observer.disconnect();
+                }
+            });
 
-			observer.observe(document.body, {
-				childList: true,
-				subtree: true
-			});
-		});
-	}
-	function setCheckpointWithPost(p_target_cp) {
-		awqLog('setCheckpointWithPost: '+ p_target_cp);
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+    }
+    function setCheckpointWithPost(p_target_cp) {
+        awqLog('setCheckpointWithPost: '+ p_target_cp);
         let targetCheckpoint = p_target_cp.replace('/','//').replace('\\','\\\\');
 
         // Try to find fn_index for the switch checkpoint "function"
@@ -1914,17 +1909,17 @@
             return;
         }
 
-		fetch("/run/predict", {
-			method: "POST",
-			headers: {"Content-Type": "application/json"},
-			redirect: "follow",
-			body: `{"fn_index":${fnIndex},"data":["${targetCheckpoint}"],"event_data":null,"session_hash":"trlwn215an"}`
-		}).then(response => {
+        fetch("/run/predict", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            redirect: "follow",
+            body: `{"fn_index":${fnIndex},"data":["${targetCheckpoint}"],"event_data":null,"session_hash":"trlwn215an"}`
+        }).then(response => {
             awqLog(`setCheckpointWithPost: repsonse: ${response.status}-${response.statusText}: ${JSON.stringify(response.json())}`);
         }).catch(error => {
             awqLog(`setCheckpointWithPost: error: ${JSON.stringify(error)}`);
         });;
-	}
+    }
 
     function triggerChange(p_elem) {
         let evt = document.createEvent("HTMLEvents");
