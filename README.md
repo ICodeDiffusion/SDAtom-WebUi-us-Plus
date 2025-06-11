@@ -10,7 +10,7 @@ Audio notifications are functional, and it also has its own notification system.
 
 ## Latest Forge Now Works!
 
-I found a way to make this extension compatible with the newest version of Forge.
+I found a way to make this extension compatible with the newest version of Forge (Gradio 4).
 
 This is the branch you need for the latest Forge version:
 [https://github.com/ICodeDiffusion/SDAtom-WebUi-us-Plus/tree/Latest-Forge-SDAtom-WebUi-us-Plus](https://github.com/ICodeDiffusion/SDAtom-WebUi-us-Plus/tree/Latest-Forge-SDAtom-WebUi-us-Plus)
