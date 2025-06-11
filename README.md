@@ -1,67 +1,91 @@
 # SDAtom-WebUi-us-Plus
-# reForge Compatible, Newest Forge now Compatible!
 
-I have been a huge fan of this extension, it's simple, not heavy on performance, and works perfetly!
+# reForge and Latest Forge Now Compatible!
 
-Audio Notifications work, it also has it's own as well. So you can have notification mp3 alongside SD-ATOM's notification.
+I have been a huge fan of this extension for a while. It's simple, not heavy on performance, and works perfectly!
 
-
-# Latest Forge now works!
-
-I found a way to fix this extension to work on the newest forge!
-
-This branch is the one you want for newest forge!
-https://github.com/ICodeDiffusion/SDAtom-WebUi-us-Plus/tree/Latest-Forge-SDAtom-WebUi-us-Plus
-
-# Original Reason why it didn't work:
-
-Ok so when I add the settings to be carried over to this extension they have a name to each one, however some settings are auto generated a name upon installation and are given a component id instead of a name.
-
-New Forge UI for Checkpoint selection has the same thing "component-1370", but reForge & old forge have something like this instead "setting_sd_model_checkpoint".
+Audio notifications are functional, and it also has its own notification system. This means you can use a custom notification MP3 alongside SD-ATOM's default notification.
 
 
-Meaning, if everyone's UI autogenerates the id/name on those types of ui elements and it differs from each person's ui, it could indicate an internal gradio system that I do not know how to change.
+
+## Latest Forge Now Works!
+
+I found a way to make this extension compatible with the newest version of Forge.
+
+This is the branch you need for the latest Forge version:
+[https://github.com/ICodeDiffusion/SDAtom-WebUi-us-Plus/tree/Latest-Forge-SDAtom-WebUi-us-Plus](https://github.com/ICodeDiffusion/SDAtom-WebUi-us-Plus/tree/Latest-Forge-SDAtom-WebUi-us-Plus)
 
 
-# Additions so far My goal is to focus on the popular extensions first.
 
-Added Adetailer: Tab one so far
-* Activate Extension
-* Model Selection
-* Detection Confidence
-* Mask only the top k
-* Mask min area ratio
-* Mask max area ratio
-* Positive Prompt
-* Negative Prompt
-* Denoise Strength
-	* Working on currently:
-	* Method to filter top k masks by (confidence or area), This one is not working yet, it's a different UI element than I'm used to.
+### The Original Reason Why It Didn't Work
+
+When I ported the extension to new forge (Gradio 4), I discovered that each setting has a static element id. However, some settings are auto-generated a name upon installation and are given a component ID instead, the big one that broke this extension was the Model Checkpoint Dropdown, without it working the entire extension wouldn't work anymore, so only older forge/reforge worked since the dropdown had a static elemnt id.
+
+For example, the new Forge UI for Checkpoint selection uses `component-1370`, while reForge and older versions of Forge use something like `setting_sd_model_checkpoint`.
+
+This means that if everyone's UI auto-generates the ID/name for those types of UI elements, and it differs for each person, it could indicate an internal Gradio system that I did not know how to change.
+
+Now this is no longer an issue, I found a workaraout to still get this extension to work, not fully when it comes to the checkpoint selection, but it's much better than not having it work at all.
 
 
-Added Regional Prompter:
-* Activate the extension
-Matrix:
-* Base Ratio
-* Use Base Prompt
-* Use Common Prompt
-* Use Common Negative Prompt
-* Main Splitting
-* Divide Ratio
+
+## Additions So Far
+My goal is to focus on popular extensions first.
+
+I plan to make 4 Main versions and will be cleaning up this repo.
+
+Old Forge/reForge/Classic Forge:
+  - With Extensions
+  - Without Extensions
+
+New Forge (Gradio 4):
+  - With Extensions
+  - Without Extensions
+
+This way so that people can have the option to get the barebones version or have a feature rich version.
+
+### Added ADetailer (Tab one so far)
+- Activate Extension
+- Model Selection
+- Detection Confidence
+- Mask only the top k
+- Mask min area ratio
+- Mask max area ratio
+- Positive Prompt
+- Negative Prompt
+- Denoise Strength
+  - **Currently Working on:**
+    - A method to filter top-k masks by "confidence" or "area." This is not working yet, as it's a different UI element than I'm used to.
+
+### Added Regional Prompter 
+(I belive I added this back in, but need to check when I rework this repo.)
+
+- Activate the extension
+- **Matrix:**
+  - Base Ratio
+  - Use Base Prompt
+  - Use Common Prompt
+  - Use Common Negative Prompt
+  - Main Splitting
+  - Divide Ratio
 
 
-# Roadmap:
-Complete Adetailer capabilities.
-Add other extensions and do built-in ones as well.
-Add reFoprge(I have a working prototype I been using for like a month now) & Latest forge capabilities (this will take longer)
 
-Why am I doing this?
+## Roadmap
+- Complete ADetailer capabilities.
+- Add other extensions and support built-in ones as well.
+- Add reForge (I have a working prototype I have been using for about a month) & Latest Forge capabilities (this will take longer).
 
-A major factor is Agent Scheduler DOES NOT let you edit settings of extensions settings in the queued tasks, so let's say you have 15 queued tasks that all have settings in an extension you want to change, the json file it has does not show those settings, so you are then forced to requeue the tasks all over again just to have the adjusted settings.
 
-Another annoyance, if you cancel the run on Agent Scheduler midway through to change some setttings, the preview breaks and no longer shows so you have to wait until the image is finished to then check, eventually it does fix itself but takes a while to start showing up again.
 
-This extension has been the most reliable to me and, IT JUST WORKS, no pun intended.
+## Why am I doing this?
+
+A major factor is that **Agent Scheduler** does not let you edit the settings of extensions in queued tasks. For example, if you have 15 queued tasks that all have settings in an extension you want to change, the JSON file does not show those settings. You are then forced to re-queue the tasks all over again just to have the adjusted settings.
+
+Another annoyance is that if you cancel a run on Agent Scheduler midway through to change some settings, the preview breaks and no longer shows. You have to wait until the image is finished to check it. Eventually, it does fix itself, but it takes a while to start showing up again.
+
+This extension has been the most reliable for me, and... IT JUST WORKS! (No pun intended).
+
 
 
 # How to add extensions yourself [Coming soon]
