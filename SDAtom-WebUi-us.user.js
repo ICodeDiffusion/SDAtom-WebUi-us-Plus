@@ -522,11 +522,17 @@
             return match ? match[1] : null;
         }
 
+        function normalizeElemId(p_id) {
+            if(!p_id) return p_id;
+            return String(p_id).replace(/^#/, '');
+        }
+
         function findComponentRootById(p_id) {
             if(!p_id) return null;
-            let comp = window.gradio_config.components.find(c => c.props && c.props.elem_id === p_id);
+            let normalizedId = normalizeElemId(p_id);
+            let comp = window.gradio_config.components.find(c => c.props && normalizeElemId(c.props.elem_id) === normalizedId);
             if(!comp) return null;
-            return conf.shadowDOM.root.querySelector(`[data-testid="component-${comp.id}"]`) || conf.shadowDOM.root.querySelector(`#component-${comp.id}`);
+            return conf.shadowDOM.root.querySelector(`[data-testid="component-${comp.id}"]`) || conf.shadowDOM.root.querySelector(`#component-${comp.id}`) || conf.shadowDOM.root.querySelector(`[id^="component-${comp.id}"]`);
         }
 
         function findComponentInput(p_root, p_hintSelector) {
@@ -1983,11 +1989,39 @@
         p_elem.dispatchEvent(evt);
     }
 
-    function findGradioComponentState(p_elem_id) {
-        return window.gradio_config.components.filter(comp => comp.props.elem_id == p_elem_id);
+        function findGradioComponentState(p_elem_id) {
+        if(!window.gradio_config?.components) return [];
+        let target = normalizeElemId(p_elem_id);
+        let matches = [];
+        window.gradio_config.components.forEach(comp => {
+            if(!comp?.props?.elem_id) return;
+            let elemId = normalizeElemId(comp.props.elem_id);
+            if(elemId === target) {
+                matches.push({comp, score:0});
+            } else if(elemId && target && elemId.endsWith(target)) {
+                matches.push({comp, score:1});
+            } else if(elemId && target && elemId.includes(target)) {
+                matches.push({comp, score:2});
+            }
+        });
+        matches.sort((a,b) => a.score - b.score);
+        return matches.map(entry => entry.comp);
     }
     function findGradioComponentStateByLabel(p_elem_label) {
-        return window.gradio_config.components.filter(comp => comp.props.label == p_elem_label);
+        if(!window.gradio_config?.components) return [];
+        let target = p_elem_label ? String(p_elem_label).toLowerCase() : '';
+        let matches = [];
+        window.gradio_config.components.forEach(comp => {
+            if(!comp?.props?.label) return;
+            let label = String(comp.props.label).toLowerCase();
+            if(label === target) {
+                matches.push({comp, score:0});
+            } else if(label && target && label.includes(target)) {
+                matches.push({comp, score:1});
+            }
+        });
+        matches.sort((a,b) => a.score - b.score);
+        return matches.map(entry => entry.comp);
     }
     function getGradVal(p_grad_comp) {
         return p_grad_comp.props.value;
