@@ -381,21 +381,23 @@
 		},
 
         ui:{},
-		scriptSettings: {
-			defaultQuantity:{name:"Default queue quantity", description:"Default number of times to execute each queue item", type:"numeric",value:"1"},
-			rememberQueue:{name:"Remember queue", description:"Remember the queue if you reload the page", type:"boolean",value:true},
-			notificationSound:{name:"Notification sound", description:"Sound to be played when processing of queue items stops", type:"boolean",value:true},
-			extensionScript:{name:"Extension script(s)", description:"https://github.com/Kryptortio/SDAtom-WebUi-us#script-extensions", type:"text",value:""},
-			promptFilter:{name:"Prompt filter(s)", description:"https://github.com/Kryptortio/SDAtom-WebUi-us#prompt-filter", type:"text",value:""},
-			promptFilterNegative:{name:"Filter negative prompt", description:"Apply the prompt filter to the negative filter as well", type:"boolean",value:false},
-			autoscrollOutput:{name:"Autoscroll console", description:"Scroll console automatically when new lines appear", type:"boolean",value:true},
-			verboseLog:{name:"Verbose console", description:"Log as much as possible to the console", type:"boolean",value:false},
-			maxOutputLines:{name:"Max console lines", description:"The maximum number of lines that can be shown in the console box", type:"numeric",value:"500"},
-			overwriteQueueSettings1:{name:"Alt 1 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 1 button to add to queue (same format as in the queue)", type:"text",value:'{"width":"768","height":"768"}'},
-			overwriteQueueSettings2:{name:"Alt 2 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 2 button to add to queue (same format as in the queue)", type:"text",value:'{"width":"1024","height":"1024"}'},
-			overwriteQueueSettings3:{name:"Alt 3 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 3 button to add to queue (same format as in the queue)", type:"text",value:'{"sample":"20","sampleMethod":"Euler a","width":"512","height":"512","restoreFace": false,"tiling": false,"batchCount": "1","batchSize": "1","cfg": "7","seed": "-1","extra": false,  "varSeed": "-1","varStr": "0"}'},
+                scriptSettings: {
+                        defaultQuantity:{name:"Default queue quantity", description:"Default number of times to execute each queue item", type:"numeric",value:"1"},
+                        rememberQueue:{name:"Remember queue", description:"Remember the queue if you reload the page", type:"boolean",value:true},
+                        notificationSound:{name:"Notification sound", description:"Sound to be played when processing of queue items stops", type:"boolean",value:true},
+                        extensionScript:{name:"Extension script(s)", description:"https://github.com/Kryptortio/SDAtom-WebUi-us#script-extensions", type:"text",value:""},
+                        promptFilter:{name:"Prompt filter(s)", description:"https://github.com/Kryptortio/SDAtom-WebUi-us#prompt-filter", type:"text",value:""},
+                        promptFilterNegative:{name:"Filter negative prompt", description:"Apply the prompt filter to the negative filter as well", type:"boolean",value:false},
+                        autoscrollOutput:{name:"Autoscroll console", description:"Scroll console automatically when new lines appear", type:"boolean",value:true},
+                        verboseLog:{name:"Verbose console", description:"Log as much as possible to the console", type:"boolean",value:false},
+                        maxOutputLines:{name:"Max console lines", description:"The maximum number of lines that can be shown in the console box", type:"numeric",value:"500"},
+                        preferComponentLookup:{name:"Prefer component lookup", description:"Use Gradio component metadata before falling back to legacy CSS selectors", type:"boolean",value:true},
+                        legacySelectorFallback:{name:"Legacy selector fallback", description:"Allow the script to fall back to the older hard-coded selectors when component lookup is insufficient", type:"boolean",value:true},
+                        overwriteQueueSettings1:{name:"Alt 1 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 1 button to add to queue (same format as in the queue)", type:"text",value:'{"width":"768","height":"768"}'},
+                        overwriteQueueSettings2:{name:"Alt 2 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 2 button to add to queue (same format as in the queue)", type:"text",value:'{"width":"1024","height":"1024"}'},
+                        overwriteQueueSettings3:{name:"Alt 3 overwrite", description:"Add settings you want to overwrite the current settings with when you click the Alt 3 button to add to queue (same format as in the queue)", type:"text",value:'{"sample":"20","sampleMethod":"Euler a","width":"512","height":"512","restoreFace": false,"tiling": false,"batchCount": "1","batchSize": "1","cfg": "7","seed": "-1","extra": false,  "varSeed": "-1","varStr": "0"}'},
             buttonOpacity:{name:"Button transparency", description:"Change how visible the floating buttons in the corner should be", type:"numeric",value:0.7},
-		},
+                },
         savedSetting: JSON.parse(localStorage.awqSavedSetting || '{}'),
         currentQueue: JSON.parse(localStorage.awqCurrentQueue || '[]'),
     };
@@ -514,25 +516,66 @@
 
         try { eval(conf.scriptSettings.extensionScript.value);} catch(e) { awqLogPublishMsg(`Failed to load extension script, error: <pre>${e.message} l:${e.lineNumber} c:${e.columnNumber}\n${e.stack}</pre>`,'darkorange')}
 
+        function getElemIdFromSelector(p_selector) {
+            if(!p_selector) return null;
+            let match = /#([A-Za-z0-9_-]+)/.exec(p_selector);
+            return match ? match[1] : null;
+        }
+
+        function findComponentRootById(p_id) {
+            if(!p_id) return null;
+            let comp = window.gradio_config.components.find(c => c.props && c.props.elem_id === p_id);
+            if(!comp) return null;
+            return conf.shadowDOM.root.querySelector(`[data-testid="component-${comp.id}"]`) || conf.shadowDOM.root.querySelector(`#component-${comp.id}`);
+        }
+
+        function findComponentInput(p_root, p_hintSelector) {
+            if(!p_root) return null;
+            let hint = p_hintSelector ? p_hintSelector.split(' ').pop() : '';
+            if(hint && p_root.querySelector(hint)) return p_root.querySelector(hint);
+            return p_root.querySelector('textarea, input[type="text"], input[type="number"], input[type="checkbox"], select, button, [role="slider"]') || p_root;
+        }
+
+        function findElementFromComponent(p_confEntry) {
+            if(!p_confEntry.gradEl) return null;
+            let root = conf.shadowDOM.root.querySelector(`[data-testid="component-${p_confEntry.gradEl.id}"]`) || conf.shadowDOM.root.querySelector(`#component-${p_confEntry.gradEl.id}`) || conf.shadowDOM.root.querySelector(`[id^="component-${p_confEntry.gradEl.id}"]`);
+            return findComponentInput(root, p_confEntry.sel);
+        }
+
         function mapElementsToConf(p_object, p_info) {
             for (let prop in p_object) {
-                if(p_object[prop].sel) {
-                    p_object[prop].el = conf.shadowDOM.root.querySelector(p_object[prop].sel);
-                    if(!p_object[prop].el) awqLogPublishError(`Failed to find the ${p_info} ${prop}`);
+                let entry = p_object[prop];
+                if(entry.grad && !entry.gradEl) {
+                    let gradIndex = entry.gradIndex ? entry.gradIndex : 0;
+                    entry.gradEl = findGradioComponentState(entry.grad)[gradIndex];
                 }
-                if(p_object[prop].sel2) {
-                    p_object[prop].el2 = conf.shadowDOM.root.querySelector(p_object[prop].sel2);
-                    if(!p_object[prop].el2) awqLogPublishError(`Failed to find the secondary ${p_info} ${prop}`);
+                if(entry.gradLab && !entry.gradEl) {
+                    entry.gradEl = findGradioComponentStateByLabel(entry.gradLab)[0];
                 }
-                if(p_object[prop].grad) {
-                    let gradIndex = p_object[prop].gradIndex ? p_object[prop].gradIndex : 0;
-                    p_object[prop].gradEl = findGradioComponentState(p_object[prop].grad)[gradIndex];
-                    if(!p_object[prop].gradEl) awqLogPublishError(`Failed to find the gradio element ${p_info} ${prop}`);
+                if(!entry.gradEl && entry.sel) {
+                    let elemId = getElemIdFromSelector(entry.sel);
+                    if(elemId) entry.gradEl = findGradioComponentState(elemId)[entry.gradIndex ? entry.gradIndex : 0];
                 }
-                if(p_object[prop].gradLab) {
-                    p_object[prop].gradEl = findGradioComponentStateByLabel(p_object[prop].gradLab)[0];
-                    if(!p_object[prop].gradEl) awqLogPublishError(`Failed to find the gradio element ${p_info} ${prop}`);
+                if(conf.scriptSettings.preferComponentLookup?.value !== false && !entry.el && entry.gradEl) {
+                    entry.el = findElementFromComponent(entry);
                 }
+                if(!entry.el && entry.sel) {
+                    let derivedRoot = findComponentRootById(getElemIdFromSelector(entry.sel));
+                    if(derivedRoot) entry.el = findComponentInput(derivedRoot, entry.sel);
+                }
+                if(conf.scriptSettings.legacySelectorFallback?.value !== false && entry.sel && !entry.el) {
+                    entry.el = conf.shadowDOM.root.querySelector(entry.sel);
+                }
+                if(entry.sel2 && !entry.el2) {
+                    entry.el2 = conf.shadowDOM.root.querySelector(entry.sel2);
+                    if(!entry.el2 && entry.gradEl) {
+                        entry.el2 = findComponentInput(conf.shadowDOM.root.querySelector(`[data-testid="component-${entry.gradEl.id}"]`), entry.sel2);
+                    }
+                }
+                if(!entry.el && (entry.sel || entry.gradEl)) awqLogPublishError(`Failed to find the ${p_info} ${prop}`);
+                if(entry.sel2 && !entry.el2) awqLogPublishError(`Failed to find the secondary ${p_info} ${prop}`);
+                if(entry.grad && !entry.gradEl) awqLogPublishError(`Failed to find the gradio element ${p_info} ${prop}`);
+                if(entry.gradLab && !entry.gradEl) awqLogPublishError(`Failed to find the gradio element ${p_info} ${prop}`);
             }
         }
 
